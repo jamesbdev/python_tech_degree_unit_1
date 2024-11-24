@@ -30,8 +30,8 @@ def start_game():
                 attempts += 1
                 # check if the number is out of range
                 if guess > 10 or guess < 1:
-                    print("The number you chose is out of range. Please choose a number between 1 and 10.")
-                    break
+                    print("Sorry, the number you chose is out of range.")
+                    continue
                 # conditional to check if the guess is greater than the number
                 elif guess > random_number:
                     print("It's lower")
@@ -40,7 +40,7 @@ def start_game():
                     print("It's higher")
             #handle exception
             except ValueError: 
-                print("Sorry, it seems you have not entered a number. Please enter a number between 1 and 10")
+                print("Sorry, it seems you have not entered a number")
         # Show a winning message. Let user know how many attempts they have made.
         print("Got it. You have made {} attempts".format(attempts))
         # Show goodbye message
