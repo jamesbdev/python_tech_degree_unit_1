@@ -20,7 +20,8 @@ def start_game():
     # contains the logic to loop until the user finds the correct answer
     def play_game(score):
         # display a score message
-        print("The lowest number of attempts is {}. Can you beat this?".format(score))
+        if score < 100:
+            print("The lowest number of attempts is {}. Can you beat this?".format(score))
       
         # create a random number between 1 and 10
         random_number = random.randint(1, 10)
