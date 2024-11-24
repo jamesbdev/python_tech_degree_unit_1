@@ -13,9 +13,15 @@ def start_game():
     name = input("What is your name?  ")
     # show a welcome message
     print("***Welcome to the game, {} ***".format(name))
-
+    
+    # declare a score variable to keep track of the lowest attempt
+    score = 100
+   
     # contains the logic to loop until the user finds the correct answer
-    def play_game():
+    def play_game(score):
+        # display a score message
+        print("The lowest number of attempts is {}. Can you beat this?".format(score))
+      
         # create a random number between 1 and 10
         random_number = random.randint(1, 10)
         # set a default guess number before starting
@@ -43,6 +49,9 @@ def start_game():
                 print("Sorry, it seems you have not entered a number")
         # Show a winning message. Let user know how many attempts they have made.
         print("Got it. You have made {} attempts".format(attempts))
+        # update score if the number of attempts is smaller than the score
+        if attempts < score:
+            score = attempts
         # Show goodbye message
         print("*** Game Over ***")
     
@@ -52,13 +61,12 @@ def start_game():
             play_again = input("Would you like to play again? (yes/no)  ")
             if play_again.lower() == "yes":
                 #repeat the game logic
-                play_game()
-                
+                play_game(score)
             else:
                 # Show goodbye message
                 print("Thank you for playing. Bye for now.")
         play_again()
-    play_game()
+    play_game(score)
 
 
 #Call the function to start the game
